@@ -382,22 +382,127 @@
             transform: rotate(90deg);
             color: var(--primary);
         }
+
+        /* New styles for products section */
+        .products-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px; /* Fixed height for images */
+            object-fit: contain; /* Ensures the image fits without cropping */
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: white; /* Background for images with transparency */
+            padding: 10px;
+        }
+
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .product-card .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto; /* Pushes buttons to the bottom */
+        }
+
+        .product-card .btn-buy,
+        .product-card .btn-add-to-cart {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .product-card .btn-buy {
+            background: var(--primary);
+            color: white;
+        }
+
+        .product-card .btn-buy:hover {
+            background: var(--primary-dark);
+        }
+
+        .product-card .btn-add-to-cart {
+            background: var(--accent);
+            color: white;
+        }
+
+        .product-card .btn-add-to-cart:hover {
+            background: #3aa099; /* A slightly darker accent */
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <div class="header-overlay"></div>
-            <h1>Hola</h1>
-            <p class="subtitle">Bienvenido a mi página personal</p>
+            <h1>YAKFES VIBE</h1>
+            <p class="subtitle">Mientras más vieja la pasa, más dulce.</p>
         </header>
 
         <div class="content">
             <div class="info-section">
-                <h2>Sobre Mí</h2>
-                <p>Mi nombre es <strong>Carlos Rodríguez</strong>, soy desarrollador web y diseñador UX/UI con más de 5 años de experiencia.</p>
-                <p>Me apasiona crear experiencias digitales atractivas y funcionales que resuelvan problemas reales.</p>
-                <p>Cuando no estoy programando, disfruto de la fotografía, el senderismo y la lectura.</p>
+                <h2>Sobre la empresa</h2>
+                <p>Nuestra empresa <strong>" YAKFES VIBE "</strong>, es una empresa dedicada a la elaboración de vino.</p>
+                <p>Nos distinguimos de los demás por nuestro inigualable, exquisito e innovador vino sabor café.</p>
+                <p>Manejamos la mejor calidad, y manejo de servicio al cliente.</p>
                 
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -408,11 +513,11 @@
             </div>
 
             <div class="info-section">
-                <h2>Mis Habilidades</h2>
-                <p><strong>Desarrollo Frontend:</strong> HTML5, CSS3, JavaScript, React, Vue.js</p>
-                <p><strong>Desarrollo Backend:</strong> Node.js, PHP, Python, Bases de datos</p>
-                <p><strong>Diseño:</strong> UI/UX, Adobe XD, Figma, Illustrator</p>
-                <p><strong>Otras:</strong> Git, SEO, Marketing Digital, Scrum</p>
+                <h2>Nuestras características</h2>
+                <p><strong>Productos: </strong> Nuestros productos los hacemos con el mejor material como: " " " "</p>
+                <p><strong>Desarrollo:</strong> El desarrollo del producto lo elaboramos con una gran atención a como lo pide el cliente</p>
+                <p><strong>Diseño:</strong> Cada diseño está específicamente hecho a como lo piden los clientes</p>
+                <p><strong>Sabores:</strong> Está tratado con las mejores uvas que hay en el mercado</p>
             </div>
         </div>
 
@@ -431,6 +536,239 @@
             </button>
         </div>
 
+        <!-- Nueva sección de Productos -->
+        <div class="products-section">
+            <h2>Nuestros Vinos Exclusivos</h2>
+            <p>Descubre nuestra selección de vinos únicos y de alta calidad.</p>
+            <div class="products-grid">
+                <!-- Producto 1: Vino Café Yakfes -->
+                <div class="product-card">
+                    <img src="images/1.jpg" alt="Vino Café Yakfes">
+                    <h3>Vino Café Yakfes</h3>
+                    <p class="price">\$25.99</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Café Yakfes', 25.99)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Café Yakfes', 25.99)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Vino Tinto Clásico -->
+                <div class="product-card">
+                    <img src="images/2.jpg" alt="Vino Tinto Clásico">
+                    <h3>Vino Tinto Clásico</h3>
+                    <p class="price">\$18.50</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Tinto Clásico', 18.50)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Tinto Clásico', 18.50)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Vino Blanco Afrutado -->
+                <div class="product-card">
+                    <img src="images/3.jpg" alt="Vino Blanco Afrutado">
+                    <h3>Vino Blanco Afrutado</h3>
+                    <p class="price">\$22.00</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Blanco Afrutado', 22.00)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Blanco Afrutado', 22.00)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Vino Rosado Fresco -->
+                <div class="product-card">
+                    <img src="images/4.jpg" alt="Vino Rosado Fresco">
+                    <h3>Vino Rosado Fresco</h3>
+                    <p class="price">\$16.75</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Rosado Fresco', 16.75)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Rosado Fresco', 16.75)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 5: Vino Espumoso Premium -->
+                <div class="product-card">
+                    <img src="images/5.png" alt="Vino Espumoso Premium">
+                    <h3>Vino Espumoso Premium</h3>
+                    <p class="price">\$35.00</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Espumoso Premium', 35.00)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Espumoso Premium', 35.00)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 6: Vino Dulce de Postre -->
+                <div class="product-card">
+                    <img src="images/6.jpg" alt="Vino Dulce de Postre">
+                    <h3>Vino Dulce de Postre</h3>
+                    <p class="price">\$28.99</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Dulce de Postre', 28.99)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Dulce de Postre', 28.99)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 7: Vino Orgánico Reserva -->
+                <div class="product-card">
+                    <img src="images/7.jpg" alt="Vino Orgánico Reserva">
+                    <h3>Vino Orgánico Reserva</h3>
+                    <p class="price">\$32.50</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Orgánico Reserva', 32.50)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Orgánico Reserva', 32.50)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 8: Cava Brut Nature -->
+                <div class="product-card">
+                    <img src="images/8.png" alt="Cava Brut Nature">
+                    <h3>Cava Brut Nature</h3>
+                    <p class="price">\$29.00</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Cava Brut Nature', 29.00)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Cava Brut Nature', 29.00)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 9: Vino de Hielo Dulce -->
+                <div class="product-card">
+                    <img src="images/9.jpg" alt="Vino de Hielo Dulce">
+                    <h3>Vino de Hielo Dulce</h3>
+                    <p class="price">\$45.00</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino de Hielo Dulce', 45.00)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino de Hielo Dulce', 45.00)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 10: Vino Joven Frutal -->
+                <div class="product-card">
+                    <img src="images/10.jpg" alt="Vino Joven Frutal">
+                    <h3>Vino Joven Frutal</h3>
+                    <p class="price">\$14.99</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Joven Frutal', 14.99)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Joven Frutal', 14.99)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 11: Vino de Autor Edición Limitada -->
+                <div class="product-card">
+                    <img src="images/11.jpg" alt="Vino de Autor Edición Limitada">
+                    <h3>Vino de Fresa</h3>
+                    <p class="price">\$55.00</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino de Autor Edición Limitada', 55.00)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino de Autor Edición Limitada', 55.00)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 12: Vino Fortificado Oporto -->
+                <div class="product-card">
+                    <img src="images/12.jpg" alt="Vino Fortificado Oporto">
+                    <h3>Vino Fortificado Oporto</h3>
+                    <p class="price">\$39.99</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Fortificado Oporto', 39.99)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Fortificado Oporto', 39.99)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 13: Vino Ecológico Biodinámico -->
+                <div class="product-card">
+                    <img src="images/13.png" alt="Vino Ecológico Biodinámico">
+                    <h3>Vino Ecológico Biodinámico</h3>
+                    <p class="price">\$30.00</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino Ecológico Biodinámico', 30.00)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino Ecológico Biodinámico', 30.00)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 14: Vino de Postre Moscatel -->
+                <div class="product-card">
+                    <img src="images/14.jpg" alt="Vino de Postre Moscatel">
+                    <h3>Vino de Postre Moscatel</h3>
+                    <p class="price">\$24.50</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino de Postre Moscatel', 24.50)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino de Postre Moscatel', 24.50)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Producto 15: Vino de la Casa Especial -->
+                <div class="product-card">
+                    <img src="images/15.jpg" alt="Vino de la Casa Especial">
+                    <h3>Vino de vainilla</h3>
+                    <p class="price">\$19.75</p>
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="buyProduct('Vino de la Casa Especial', 19.75)">
+                            <i class="fas fa-shopping-bag"></i> Comprar Ahora
+                        </button>
+                        <button class="btn-add-to-cart" onclick="addToCart('Vino de la Casa Especial', 19.75)">
+                            <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de la nueva sección de Productos -->
+
         <div class="qr-section">
             <h2>Comparte mi perfil</h2>
             <p>Escanea este código QR para acceder rápidamente a mi página</p>
@@ -441,7 +779,7 @@
         </div>
 
         <footer>
-            <p>© 2023 Carlos Rodríguez. Todos los derechos reservados.</p>
+            <p>© 2023 holaa. Todos los derechos reservados.</p>
         </footer>
     </div>
 
@@ -451,9 +789,9 @@
             <span class="close-btn" onclick="closeModal('contact')">&times;</span>
             <h2>Contacto</h2>
             <p>Puedes contactarme a través de:</p>
-            <p><strong>Email:</strong> carlos@ejemplo.com</p>
+            <p><strong>Email:</strong> jnbgkjf@ejemplo.com</p>
             <p><strong>Teléfono:</strong> +34 612 345 678</p>
-            <p><strong>Ubicación:</strong> Madrid, España</p>
+            <p><strong>Ubicación:</strong> tetel, el mejor pueblo</p>
         </div>
     </div>
 
@@ -462,9 +800,9 @@
             <span class="close-btn" onclick="closeModal('projects')">&times;</span>
             <h2>Mis Proyectos</h2>
             <p>Algunos de mis trabajos más recientes:</p>
-            <p><strong>E-commerce Responsive:</strong> Tienda online con carrito de compras</p>
-            <p><strong>App de Gestión:</strong> Sistema de gestión de tareas y proyectos</p>
-            <p><strong>Portal Educativo:</strong> Plataforma de cursos online</p>
+            <p><strong>Vino juajua:</strong> Vino de mango</p>
+            <p><strong>La gran uva:</strong> Con las uvas más grandes que hay</p>
+            <p><strong>Acidito:</strong> Uva con limon</p>
         </div>
     </div>
 
@@ -473,9 +811,9 @@
             <span class="close-btn" onclick="closeModal('services')">&times;</span>
             <h2>Servicios</h2>
             <p>Ofrezco los siguientes servicios:</p>
-            <p><strong>Desarrollo Web:</strong> Sitios y aplicaciones web a medida</p>
-            <p><strong>Diseño UX/UI:</strong> Interfaces intuitivas y atractivas</p>
-            <p><strong>Consultoría:</strong> Asesoramiento en transformación digital</p>
+            <p><strong>Creación de vinos:</strong> Distintos tamaños y otras</p>
+            <p><strong>Precios variados</strong> Nos ajustamos a un precio bueno</p>
+            <p><strong>Consultoría:</strong> Asesoramiento en fermentación de uvas</p>
         </div>
     </div>
 
@@ -504,7 +842,18 @@
 
         // Función para descargar CV (simulada)
         function downloadCV() {
-            alert('¡Gracias por tu interés! En un caso real, tu CV comenzaría a descargarse.');
+            alert('¡Gracias por tu interés!');
+        }
+
+        // Funciones para los botones de compra y añadir al carrito (simuladas)
+        function buyProduct(productName, price) {
+            alert(`¡Has comprado ${productName} por \$${price.toFixed(2)}! (Simulación)`);
+            // Aquí podrías redirigir a una página de pago o iniciar un proceso de checkout.
+        }
+
+        function addToCart(productName, price) {
+            alert(`${productName} (\$${price.toFixed(2)}) ha sido añadido a tu carrito. (Simulación)`);
+            // Aquí podrías actualizar un contador de carrito o añadir el producto a un array de carrito.
         }
 
         // Efecto de escritura para el título
@@ -525,7 +874,7 @@
             typeWriter();
             
             // Efecto de aparición para las secciones
-            const sections = document.querySelectorAll('.info-section, .buttons-section, .qr-section');
+            const sections = document.querySelectorAll('.info-section, .buttons-section, .qr-section, .products-section');
             sections.forEach((section, index) => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(20px)';
